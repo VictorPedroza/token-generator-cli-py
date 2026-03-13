@@ -4,6 +4,7 @@ import sys
 from rich.console import Console
 from rich.panel import Panel
 from rich import box  
+from rich.prompt import Prompt, IntPrompt
 
 class TokenCli:
     def __init__(self):
@@ -15,7 +16,25 @@ class TokenCli:
             while True:
                 os.system('cls' if os.name == 'nt' else clear)
                 self.header()
+                self.status()
                 self.menu()
+
+                try:
+                    option = IntPrompt.ask("\n[bold]Escolha uma opção:[bold]", choices=['1','2','3','4','5','6'])
+
+                    if option == 1:
+                        print("Opção: Gerar um token")
+                    elif option == 6:
+                        self.console.print("\n[bold cyan]👋 Até logo![/bold cyan]")
+                        break
+
+                    if option in [1,2,3,4,5,6]:
+                        self.console.print("\n[dim]Pressione Enter para continuar...[/dim]", end="")
+                        input()
+                
+                except KeyboardInterrupt:
+                    self.console.print("\n[yellow] Operação Cancelada[/yellow]")
+                    continue
         
         except KeyboardInterrupt:
             self.console.print("\n\n[bold cyan]👋 Até logo![/bold cyan]")
@@ -33,14 +52,19 @@ class TokenCli:
     def menu(self):
         """ Exibe o Menu Principal """
         menu = Panel(
-            "[bold yellow]1.[/bold yellow] Gerar token único\n"
-            "[bold yellow]2.[/bold yellow] Gerar múltiplos tokens\n"
-            "[bold yellow]3.[/bold yellow] Listar tokens gerados\n"
-            "[bold yellow]4.[/bold yellow] Limpar tokens\n"
-            "[bold yellow]5.[/bold yellow] Exportar tokens\n"
+            "[bold blue]1.[/bold blue] Gerar token único\n"
+            "[bold blue]2.[/bold blue] Gerar múltiplos tokens\n"
+            "[bold blue]3.[/bold blue] Listar tokens gerados\n"
+            "[bold blue]4.[/bold blue] Limpar tokens\n"
+            "[bold blue]5.[/bold blue] Exportar tokens\n"
             "[bold red]6.[/bold red] Sair",
             title="[bold]MENU PRINCIPAL[/bold]",
             box=box.ROUNDED,
             width=50
         )
         self.console.print(menu)
+
+    def status(self):
+        """ Exibe o Satus (Quantidade de Tokens) """
+        status = f"[bold blue]📊 Tokens na sessão: 2[/bold blue]"
+        self.console.print(Panel(status, box=box.SQUARE))
