@@ -5,7 +5,7 @@ class TokenStorage:
     """ Gerencia o armazenamento de tokens """
     def __init__(self):
         """ Inicializa o armazenamento vazio """
-        self._tokens = [str]  # Corrigido: era [str] (lista com um elemento str), agora é [] (lista vazia)
+        self._tokens = []  # Corrigido: era [str] (lista com um elemento str), agora é [] (lista vazia)
         self._metadata = {
             'Criado_em': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
             'Ultima_atualizacao': None
