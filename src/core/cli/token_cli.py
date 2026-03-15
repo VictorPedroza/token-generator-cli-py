@@ -207,11 +207,27 @@ class TokenCli:
 
         export_format = Prompt.ask("[bold]Escolha o Formato[/bold]", choices=["1", "2"])
 
-        with self.console.status("[bold green]Exportando...[/bold green]"):
-            if export_format == "1":
-                path = self.exporter.export_txt(tokens, None)  # Adicionado o parâmetro header
-            # else:
-            #     path = self.exporter.export_pdf(tokens)  # Precisa implementar export_pdf
+        # Inicializa a variável path
+        path = None
 
-        self.console.print(f"\n[bold green]✅ Tokens exportados com sucesso![/bold green]")
-        self.console.print(f"[cyan]📄 Arquivo: {path}[/cyan]")
+        with self.console.status("[bold green]Exportando...[/bold green]"):
+            try:
+                if export_format == "1":
+                    path = self.exporter.export_txt(tokens, None)
+                elif export_format == "2":
+                    path = self.exporter.export_pdf(tokens, None)
+                
+                # Se chegou aqui, exportou com sucesso
+                if path:
+                    self.console.print(f"\n[bold green]✅ Tokens exportados com sucesso![/bold green]")
+                    self.console.print(f"[cyan]📄 Arquivo: {path}[/cyan]")
+                else:
+                    self.console.print("[yellow]⚠️ Nenhum arquivo foi gerado[/yellow]")
+                    
+            except AttributeError as e:
+                if "export_pdf" in str(e):
+                    self.console.print("[red]❌ Método export_pdf não implementado no TokenExporter[/red]")
+                else:
+                    self.console.print(f"[red]❌ Erro ao exportar: {str(e)}[/red]")
+            except Exception as e:
+                self.console.print(f"[red]❌ Erro ao exportar: {str(e)}[/red]")
