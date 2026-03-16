@@ -8,6 +8,16 @@ Um gerador de tokens via terminal para criar, armazenar temporariamente e export
 ![FPDF](https://img.shields.io/badge/fpdf-1.7.2-green)
 
 ## 📸 Screenshots
+<img width="1450" height="350" alt="image" src="https://github.com/user-attachments/assets/a5881ad8-bbaa-42ee-b608-99d11702872f" />
+<img width="1450" height="358" alt="image" src="https://github.com/user-attachments/assets/f0109d57-19c0-4480-96f4-afef7b436d11" />
+<img width="1450" height="350" alt="image" src="https://github.com/user-attachments/assets/494f9184-3c78-4765-aa41-5e83c56d6122" />
+<img width="1450" height="350" alt="image" src="https://github.com/user-attachments/assets/f6da5f14-f284-41bb-bf39-116c87169694" />
+
+### Exemplo (TXT)
+<img width="555" height="322" alt="image" src="https://github.com/user-attachments/assets/5bf0d8b9-f1d2-4022-81ea-55cb068a076e" />
+
+### Exemplo (PDF)
+<img width="843" height="514" alt="image" src="https://github.com/user-attachments/assets/5e69ee05-f01d-45a6-a267-366bde17e7a5" />
 
 
 
@@ -17,7 +27,8 @@ Um gerador de tokens via terminal para criar, armazenar temporariamente e export
 - ✅ **Armazenamento temporário**: Tokens salvos em cache para acesso rápido
 - ✅ **Exportação para PDF**: Gere documentos PDF profissionais com fpdf
 - ✅ **Exportação para TXT**: Exporte tokens em formato texto simples
-- ✅ **Interface rica no terminal**: Outputs coloridos e formatados com Rich
+- ✅ **Interface rica no terminal**: Outputs coloridos e formatados com Rich<img width="1455" height="355" alt="image" src="https://github.com/user-attachments/assets/dc107c10-f10c-4cff-aecf-5fe5c4e02866" />
+
 - ✅ **Syntax highlighting**: Código e tokens destacados com Pygments
 - ✅ **Markdown 6**: Renderização de markdown nos relatórios
 - ✅ **CLI intuitiva**: Interface de linha de comando simples e direta
